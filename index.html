@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<main>
+
+    <link rel="stylesheet" href="Style/A12.css">
+
+</main>
+<head>
+    <title>Fun Facts</title>
+    <script>
+        function setCookie(cname,cvalue,exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            let expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for(let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function checkCookie() {
+            let user = getCookie("username");
+            if (user != "") {
+                alert("Welcome again " + user + " Please enjoy the content!");
+            } else {
+                user = prompt("Welcome to our website! Please enter your name:","");
+                if (user != "" && user != null) {
+                    setCookie("username", user, 30);
+                }
+            }
+        }
+    </script>
+</head>
+
+<body onload="checkCookie()">
+
+<p>
+    Welcome to this website of random fun facts!
+</p>
+
+    <h2>Did you know?</h2>
+
+<ul>
+    <li>Birds can't taste spicy food. Their taste receptors are different and spicy pepper plants have evolved to take advantage of this since birds are the best animals to spread their seeds far and wide</li>
+    <li>Oranges don't naturally grow in nature. They are the hybrid of pomelos(Fruit ancestor of the grapefruit) and mandarins</li>
+    <li>Stop signs used to be yellow. The US switch to red in 1954 when fade-resistant porcelain enamel was made available.</li>
+    <li>The book, Green Eggs and Ham by Dr. Suess was made when the editor made a bet that the author couldn't make a book that used no more than 50 different words. It was done with using exactly 50 different unique words. The editor lost and paid $50.</li>
+</ul>
+<p>
+
+
+
+</p>
+
+</body>
+
+</html>
